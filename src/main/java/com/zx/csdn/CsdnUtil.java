@@ -33,9 +33,10 @@ public class CsdnUtil {
             "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36 TheWorld 7",
             "Mozilla/5.0 (Windows NT 6.1; W…) Gecko/20100101 Firefox/60.0"};
 
+    //自己csdn的主页地址
     static String myUrl = "https://blog.csdn.net/qq_39898191";
-//    static String userName = "账号";
-//    static String password = "密码";
+    static String userName = "账号";
+    static String password = "密码";
     static CookieManager manager = new CookieManager();
 
     public static void main(String[] args) throws IOException {
@@ -52,8 +53,9 @@ public class CsdnUtil {
                         try {
 //                            setIpProxy();
                             HttpUrlConnectionUtil.get(null, href);
-                            Integer length = href.split("/").length;
-                            like(href.split("/")[length - 1]);
+                            System.out.println("访问成功");
+//                            Integer length = href.split("/").length;
+//                            like(href.split("/")[length - 1]);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
