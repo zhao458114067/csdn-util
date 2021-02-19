@@ -48,7 +48,7 @@ public class CsdnUtil {
             @Override
             public void run() {
                 try {
-                    HttpUrlConnectionUtil.ips("http://api.xiequ.cn/VAD/GetIp.aspx?act=get&num=200&time=30&plat=1&re=1&type=2&so=1&ow=1&spl=1&addr=&db=1");
+//                    HttpUrlConnectionUtil.ips("http://api.xiequ.cn/VAD/GetIp.aspx?act=get&num=200&time=30&plat=1&re=1&type=2&so=1&ow=1&spl=1&addr=&db=1");
                     ArrayList<String> blogs = getBlogs();
                     blogs.stream().forEach(href -> {
                         try {
