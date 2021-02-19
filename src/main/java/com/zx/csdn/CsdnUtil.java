@@ -9,6 +9,7 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.net.CookieHandler;
+import java.net.InetAddress;
 import java.net.URI;
 import java.util.*;
 
@@ -41,19 +42,19 @@ public class CsdnUtil {
 
     public static void main(String[] args) throws IOException {
         CookieHandler.setDefault(manager);
-        //暂时无法登录
+        //暂时无法使用登录
 //        login();
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
                 try {
-//                    HttpUrlConnectionUtil.ips("http://api.xiequ.cn/VAD/GetIp.aspx?act=get&num=200&time=30&plat=1&re=1&type=2&so=1&ow=1&spl=1&addr=&db=1");
+                    HttpUrlConnectionUtil.ips("http://api.xiequ.cn/VAD/GetIp.aspx?act=get&num=200&time=30&plat=1&re=1&type=2&so=1&ow=1&spl=1&addr=&db=1");
                     ArrayList<String> blogs = getBlogs();
                     blogs.stream().forEach(href -> {
                         try {
-//                            setIpProxy();
+//                                setIpProxy();
                             HttpUrlConnectionUtil.get(null, href);
-                            System.out.println("访问成功");
+                            System.out.println(href + "访问成功");
 //                            Integer length = href.split("/").length;
 //                            like(href.split("/")[length - 1]);
                         } catch (IOException e) {
@@ -110,22 +111,22 @@ public class CsdnUtil {
     /**
      * 暂时没有用到
      */
-//    public static void setIpProxy() {
-//        JSONObject headers = new JSONObject();
-//        try {
-//            String hostAddress = InetAddress.getLocalHost().getHostAddress();
-//            System.getProperties().setProperty("http.proxyHost", hostAddress);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        int rand = (int) ((Math.random() * (100 - 0 + 1)) + 0);
-//        String[] r1 = HttpUrlConnectionUtil.ips.get(rand).split(":");
-//        if (HttpUrlConnectionUtil.ips.size() == 0 && r1[1].length() > 5) {
-//            return;
-//        } else {
-//            System.getProperties().setProperty("http.proxyHost", r1[0]);
-//            System.getProperties().setProperty("http.proxyPort", r1[1]);
-//        }
-////        System.err.println(r1[0] + ":" + r1[1]);
-//    }
+    public static void setIpProxy() {
+        JSONObject headers = new JSONObject();
+        try {
+            String hostAddress = InetAddress.getLocalHost().getHostAddress();
+            System.getProperties().setProperty("http.proxyHost", hostAddress);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        int rand = (int) ((Math.random() * (100 - 0 + 1)) + 0);
+        String[] r1 = HttpUrlConnectionUtil.ips.get(rand).split(":");
+        if (HttpUrlConnectionUtil.ips.size() == 0 && r1[1].length() > 5) {
+            return;
+        } else {
+            System.getProperties().setProperty("http.proxyHost", r1[0]);
+            System.getProperties().setProperty("http.proxyPort", r1[1]);
+        }
+//        System.err.println(r1[0] + ":" + r1[1]);
+    }
 }

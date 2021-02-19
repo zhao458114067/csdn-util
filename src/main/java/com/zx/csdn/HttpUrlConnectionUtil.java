@@ -18,6 +18,7 @@ import java.util.Iterator;
 public class HttpUrlConnectionUtil {
     static private int length;
     static ArrayList<String> ips = new ArrayList();
+
     /**
      * get请求
      *
@@ -89,6 +90,7 @@ public class HttpUrlConnectionUtil {
 
     /**
      * 暂时没有用到
+     *
      * @param getIpUrl
      * @return
      * @throws IOException
