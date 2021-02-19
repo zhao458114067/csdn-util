@@ -34,8 +34,8 @@ public class CsdnUtil {
             "Mozilla/5.0 (Windows NT 6.1; W…) Gecko/20100101 Firefox/60.0"};
 
     static String myUrl = "https://blog.csdn.net/qq_39898191";
-    static String userName = "13149105475";
-    static String password = "Zz458114067";
+//    static String userName = "账号";
+//    static String password = "密码";
     static CookieManager manager = new CookieManager();
 
     public static void main(String[] args) throws IOException {
